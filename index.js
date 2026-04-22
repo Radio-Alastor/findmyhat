@@ -34,7 +34,7 @@ const COLS = 10;
 const PERCENT = .2; // percentage on the number of holes in the game map
 
 class Field {
-  // DONE for position tracking 
+  // For position tracking 
   startRow = 0;
   startCol = 0;
 
@@ -79,32 +79,32 @@ class Field {
     console.log(direction);
   }
 
-  // !! TODO: updateGame Assessment Challenge
+  // !! UpdateGame Assessment Challenge
   updateGame(positionRow, positionCol) {
-    // update PLAYER movement 
+    // Update PLAYER movement 
     const playerRow = this.startRow + positionRow;
     const playerCol = this.startCol + positionCol;
 
     // Check the following conditions:
-    // TODO 1. whether the player moved out of the map, end the game
+    // 1. Whether the player moved out of the map, end the game
     if (playerRow < 0 || playerRow >= ROWS || playerCol < 0 || playerCol >= COLS) {
       console.log(FEEDBACK_OUT_MSG);
       this.#end();
     }
 
-    // TODO 2. whether the player fell into a HOLE, end the game
+    // 2. Whether the player fell into a HOLE, end the game
     else if (this.field[playerRow][playerCol] === HOLE) {
       console.log(FEEDBACK_LOSE_MSG);
       this.#end();
     }
 
-    // TODO 3. whether the player moved to the hat, wins the game, end the game
+    // 3. Whether the player moved to the hat, wins the game, end the game
     else if (this.field[playerRow][playerCol] === HAT) {
       console.log(FEEDBACK_WIN_MSG);
       this.#end();
     }
 
-    // TODO 4. whether the player moved to a grass spot, update the player's position and continue with the game
+    // 4. Whether the player moved to a grass spot, update the player's position and continue with the game
     else {
       // when player move to grass spot, previous spot become grass
       this.field[this.startRow][this.startCol] = GRASS;
@@ -118,7 +118,7 @@ class Field {
   // * start() a public method of the class to start the game
   start() {
     this.gamePlay = true;
-    // include position tracking
+    // Include position tracking
     this.startRow = 0;
     this.startCol = 0;
 
@@ -132,7 +132,8 @@ class Field {
       const input = prompt("Enter (w)up, (s)down, (a)left, (d)right. Press (q) to quit: ");
       let flagInvalid = false; //use a flag to determine 
       let feedback = "";
-      // include movement to set according to the direction chosen
+
+      // Include movement to set according to the direction chosen
       let positionRow = 0;
       let positionCol = 0;
 
