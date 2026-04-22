@@ -106,7 +106,7 @@ class Field {
 
     // TODO 4. whether the player moved to a grass spot, update the player's position and continue with the game
     else {
-      // when player move to grass sport previous spot become grass
+      // when player move to grass spot, previous spot become grass
       this.field[this.startRow][this.startCol] = GRASS;
       // update the player's position
       this.field[playerRow][playerCol] = PLAYER;
@@ -174,10 +174,8 @@ class Field {
       this.updateMove(feedback);
 
       if (!flagInvalid) { //flagInvalid is a boolean (if flagInvalid is not false (ie. true))
-        // update the game play
-        // add position tracking
+        // update the game play (add position tracking)
         this.updateGame(positionRow, positionCol);
-
       }
     }
   }
@@ -186,8 +184,6 @@ class Field {
   #end() {
     this.gamePlay = false;
   }
-
-
 }
 
 // * Generate a new field - using Field's static method: generateField
